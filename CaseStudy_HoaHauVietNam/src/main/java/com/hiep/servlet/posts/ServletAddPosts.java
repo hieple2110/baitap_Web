@@ -26,13 +26,13 @@ public class ServletAddPosts extends HttpServlet {
             String title = request.getParameter("title");
             String shortContent = request.getParameter("short");
             String fullContent = request.getParameter("full");
-
-            Posts posts = new Posts(image, title, shortContent, fullContent);
-            request.setAttribute("message",this.postsService.insert(posts));
+            int category = Integer.parseInt(request.getParameter("category"));
+            Posts posts = new Posts(image, title, shortContent, fullContent, category);
+            request.setAttribute("message", this.postsService.insert(posts));
             List<Posts> listPosts = this.postsService.getAll();
-            request.setAttribute("listPosts",listPosts);
+            request.setAttribute("listPosts", listPosts);
             RequestDispatcher dispatcher = request.getRequestDispatcher("posts/listPosts.jsp");
-            dispatcher.forward(request,response);
+            dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

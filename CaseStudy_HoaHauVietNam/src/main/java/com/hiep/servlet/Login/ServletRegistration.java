@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ServletRegistration",urlPatterns = "/registration")
+@WebServlet(name = "ServletRegistration", urlPatterns = "/registration")
 public class ServletRegistration extends HttpServlet {
     AccountService accountService = new AccountService();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
@@ -25,9 +26,10 @@ public class ServletRegistration extends HttpServlet {
             String pass = request.getParameter("pass");
             String name = request.getParameter("name");
             String email = request.getParameter("email");
-            Account account = new Account( image,user, pass, name, email);
+            String decentralization = request.getParameter("decentralization");
+            Account account = new Account(image, user, pass, name, email, decentralization);
             request.setAttribute("message", accountService.insert(account));
-           response.sendRedirect("/login");
+            response.sendRedirect("/login");
         } catch (Exception e) {
             e.printStackTrace();
         }

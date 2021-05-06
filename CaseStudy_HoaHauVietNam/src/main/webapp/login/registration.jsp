@@ -52,6 +52,10 @@
                     </div>
 
                     <div>
+                        <input type="text" class="form-control" name="decentralization" placeholder="decentralization" required=""/>
+                    </div>
+
+                    <div>
                         <a class="btn btn-default submit"><input type="submit" value="Create Account"></a>
 
                     </div>

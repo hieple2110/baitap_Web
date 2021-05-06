@@ -7,35 +7,44 @@ public class Account {
     private String passWord;
     private String fullName;
     private String email;
+    private String decentralization;
     private String status;
 
-    public Account(int idAccount,String image, String userName, String passWord, String fullName, String email,  String status) {
+    public Account(int idAccount,String image, String userName, String passWord, String fullName, String email, String decentralization, String status) {
         this.idAccount = idAccount;
         this.image = image;
         this.userName = userName;
         this.passWord = passWord;
         this.fullName = fullName;
         this.email = email;
+        this.decentralization = decentralization;
         this.status = status;
     }
 
-    public Account(int idAccount, String image, String userName, String passWord, String fullName, String email) {
+    public Account(int idAccount, String image, String userName, String passWord, String fullName,String decentralization, String email) {
         this.idAccount = idAccount;
         this.image = image;
         this.userName = userName;
         this.passWord = passWord;
         this.fullName = fullName;
         this.email = email;
+        this.decentralization = decentralization;
 
     }
 
-    public Account( String image,String userName, String passWord, String fullName, String email) {
+    public Account( String image,String userName, String passWord, String fullName, String email,String decentralization) {
         this.image = image;
         this.userName = userName;
         this.passWord = passWord;
         this.fullName = fullName;
         this.email = email;
+        this.decentralization = decentralization;
 
+    }
+
+    public Account(String image, String userName) {
+        this.image = image;
+        this.userName = userName;
     }
 
     public int getIdAccount() {
@@ -92,5 +101,13 @@ public class Account {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDecentralization() {
+        return decentralization;
+    }
+
+    public void setDecentralization(String decentralization) {
+        this.decentralization = decentralization;
     }
 }

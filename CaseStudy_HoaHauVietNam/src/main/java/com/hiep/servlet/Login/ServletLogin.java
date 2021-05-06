@@ -26,14 +26,17 @@ public class ServletLogin extends HttpServlet {
         try {
             Account account = this.accountService.findUserPass(user, password);
             if (this.accountService.checkUser(user, password)) {
-                if (user.equals("admin@gmail.com")) {
+                if (account.getDecentralization().equals("admin")) {
                     session.setAttribute("a_userName", account.getUserName());
                     session.setAttribute("account", account);
-                    response.sendRedirect("/listMiss");
+                    response.sendRedirect("/hoahauvietnam.com.vn");
+                } else if (account.getDecentralization().equals("user")) {
+                    session.setAttribute("a_userName", account.getUserName());
+                    session.setAttribute("account", account);
+                    response.sendRedirect("/hoahauvietnam.com.vn");
                 } else {
-                    session.setAttribute("a_userName", account.getUserName());
-                    session.setAttribute("account", account);
-                    response.sendRedirect("/user");
+                    session.setAttribute("message", "You do not have an account. Register your account now");
+                    response.sendRedirect("/login");
                 }
             } else {
                 request.setAttribute("message", "User, password please try again");

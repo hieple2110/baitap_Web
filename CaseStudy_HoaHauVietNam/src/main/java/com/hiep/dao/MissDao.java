@@ -21,20 +21,11 @@ public class MissDao extends DaoHelper implements BaseDao<Miss> {
             " inner join nation on miss.idNation = nation.idNation\n" +
             " inner join education on miss.idEducation = education.idEducation and miss.idMiss = ?";
 
-    private final String LIST_DUYET = "select miss.* , province.nameProvince as province, nation.nameNation as nation, education.nameEducation as education from miss\n" +
-            "inner join province on miss.idProvince = province.idProvince \n" +
-            "inner join nation on miss.idNation = nation.idNation\n" +
-            "inner join education on miss.idEducation = education.idEducation and (miss.status = \"Đã duyệt\" and miss.isDelete = 0);";
+    private final String LIST_DUYET = "call list_miss_approve();";
 
-    private final String LIST_CHO_DUYET = "select miss.* , province.nameProvince as province, nation.nameNation as nation, education.nameEducation as education from miss\n" +
-            "inner join province on miss.idProvince = province.idProvince \n" +
-            "inner join nation on miss.idNation = nation.idNation\n" +
-            "inner join education on miss.idEducation = education.idEducation and (miss.status = \"Chờ duyệt\" and miss.isDelete = 0);";
+    private final String LIST_CHO_DUYET = "call list_miss_wait();";
 
-    private final String LIST_LOAI = "select miss.* , province.nameProvince as province, nation.nameNation as nation, education.nameEducation as education from miss\n" +
-            "inner join province on miss.idProvince = province.idProvince \n" +
-            "inner join nation on miss.idNation = nation.idNation\n" +
-            "inner join education on miss.idEducation = education.idEducation and (miss.status = \"Bị loại\" and miss.isDelete = 0);";
+    private final String LIST_LOAI = " call list_miss_out()";
 
     private final String INSERT_MISS = "INSERT INTO miss ( nameMiss , dateOfBirth , passport , address , job , email , numberPhone , idProvince , idNation , idEducation , image ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 

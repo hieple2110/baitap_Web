@@ -183,6 +183,22 @@
                                         <textarea  id="update" class=" form-control" name="full">${posts.fullContent}</textarea>
                                     </div>
                                 </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Category<span
+                                            class="required"></span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                      <select class="form-control" name="category">
+                                          <c:forEach items="${listCategory}" var="category">
+                                              <c:if test="${posts.idCategory  == category.idCategory}">
+                                                  <option selected value="${category.idCategory}">${category.nameCategory}</option>
+                                              </c:if>
+                                              <c:if test="${posts.idCategory  != category.idCategory}">
+                                                  <option value="${category.idCategory}">${category.nameCategory}</option>
+                                              </c:if>
+                                          </c:forEach>
+                                      </select>
+                                    </div>
+                                </div>
                                 <div class="ln_solid">
                                     <div class="form-group">
                                         <div class="col-md-6 offset-md-3">

@@ -66,33 +66,44 @@
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
                         <ul class="nav side-menu">
-                            <li><a href="/listAccount"><i class="fa fa-desktop"></i>Quản lý Tài khoản</a>
-                            </li>
+                            <c:if test="${sessionScope.account != null}">
+                                <c:choose>
+                                    <c:when test="${sessionScope.account.decentralization.equals('user')}">
+                                        <li><a href="/listPosts"><i class="fa fa-desktop"></i>Quản lý Bài viết</a>
+                                        </li>
+                                    </c:when>
+                                    <c:when test="${sessionScope.account.decentralization.equals('admin')}">
+                                        <li><a href="/listAccount"><i class="fa fa-desktop"></i>Quản lý Tài khoản</a>
+                                        </li>
 
-                            <li><a href="/listPosts"><i class="fa fa-desktop"></i>Quản lý Bài viết</a>
-                            </li>
+                                        <li><a href="/listPosts"><i class="fa fa-desktop"></i>Quản lý Bài viết</a>
+                                        </li>
 
-                            <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Thí Sinh</a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/listMiss">Hồ Sơ Đăng Ký</a></li>
-                                    <li><a href="/listPage">Hồ Sơ Đăng Ký(Page)</a></li>
-                                    <li><a href="/xetduyet">Danh sách Xét duyệt</a></li>
-                                    <li><a href="/choDuyet">Danh sách Chờ duyệt</a></li>
-                                    <li><a href="/daDuyet">Danh sách Đã duyệt</a></li>
-                                    <li><a href="/biLoai">Danh sách Bị loại</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Tỉnh thành</a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/pageProvince">Danh sách Tỉnh thành(Page)</a></li>
-                                    <li><a href="/listProvince">Danh sách Tỉnh thành</a></li>
-                                </ul>
-                            </li>
+                                        <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Thí Sinh</a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/listMiss">Hồ Sơ Đăng Ký</a></li>
+                                                <li><a href="/listPage">Hồ Sơ Đăng Ký(Page)</a></li>
+                                                <li><a href="/xetduyet">Danh sách Xét duyệt</a></li>
+                                                <li><a href="/choDuyet">Danh sách Chờ duyệt</a></li>
+                                                <li><a href="/daDuyet">Danh sách Đã duyệt</a></li>
+                                                <li><a href="/biLoai">Danh sách Bị loại</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Tỉnh thành</a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/pageProvince">Danh sách Tỉnh thành(Page)</a></li>
+                                                <li><a href="/listProvince">Danh sách Tỉnh thành</a></li>
+                                            </ul>
+                                        </li>
 
-                            <li><a href="/listNation"><i class="fa fa-desktop"></i>Quản lý Dân Tộc</a>
-                            </li>
-                            <li><a href="/listEducation"><i class="fa fa-desktop"></i>Quản lý Học Vấn</a>
-                            </li>
+                                        <li><a href="/listNation"><i class="fa fa-desktop"></i>Quản lý Dân Tộc</a>
+                                        </li>
+                                        <li><a href="/listEducation"><i class="fa fa-desktop"></i>Quản lý Học Vấn</a>
+                                        </li>
+                                    </c:when>
+                                </c:choose>
+                            </c:if>
+
                         </ul>
                     </div>
 
@@ -279,6 +290,14 @@
                                             class="required"></span></label>
                                     <div class="col-md-6 col-sm-6">
                                         <input class="form-control" data-validate-length-range="6" name="email"
+                                               type="text" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align"> Decentralization<span
+                                            class="required"></span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" data-validate-length-range="3" name="decentralization"
                                                type="text" required="required"/>
                                     </div>
                                 </div>

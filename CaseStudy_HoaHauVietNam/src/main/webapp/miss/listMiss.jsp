@@ -71,7 +71,9 @@
 
                             <li><a href="/listPosts"><i class="fa fa-desktop"></i>Quản lý Bài viết</a>
                             </li>
+                            <li><a href="/listCategory"><i class="fa fa-desktop"></i>Quản lý Thể loại</a>
 
+                            </li>
                             <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Thí Sinh</a>
                                 <ul class="nav child_menu">
                                     <li><a href="/listMiss">Hồ Sơ Đăng Ký</a></li>

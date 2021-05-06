@@ -9,11 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountDao extends  DaoHelper implements BaseDao<Account> {
+public class AccountDao extends DaoHelper implements BaseDao<Account> {
     private final String SELECT_ALL = "SELECT * FROM account where status = 0";
     private final String FIND_BY_ID = "SELECT * FROM account where idAccount = ?";
-    private final String INSERT_ACCOUNT = "INSERT INTO account ( image, userName , passWord , fullName , email  )VALUES(?,?,?,?,?)";
-    private final String UPDATE_ACCOUNT = "UPDATE account SET  image = ?, userName = ?, passWord = ?, fullName = ?, email = ? WHERE idAccount = ?";
+    private final String INSERT_ACCOUNT = "INSERT INTO account ( image, userName , passWord , fullName , email,decentralization  )VALUES(?,?,?,?,?,?)";
+    private final String UPDATE_ACCOUNT = "UPDATE account SET  image = ?, userName = ?, passWord = ?, fullName = ?, email = ?,decentralization=? WHERE idAccount = ?";
     private final String DELETE_ACCOUNT = "UPDATE account SET status = 1 WHERE idAccount = ?";
     private final String FIND_USER_PASS = "SELECT * FROM account WHERE userName = ? and passWord = ?";
 
@@ -32,8 +32,9 @@ public class AccountDao extends  DaoHelper implements BaseDao<Account> {
                 String passWord = resultSet.getString("passWord");
                 String fullName = resultSet.getString("fullName");
                 String email = resultSet.getString("email");
+                String decentralization = resultSet.getString("decentralization");
                 String status = resultSet.getString("status");
-                account = new Account(idAccount, image,userName,passWord,fullName,email, status);
+                account = new Account(idAccount, image, userName, passWord, fullName, email, decentralization, status);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,14 +51,15 @@ public class AccountDao extends  DaoHelper implements BaseDao<Account> {
         try (PreparedStatement statement = connec.prepareStatement(SELECT_ALL)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                int id = resultSet.getInt("idAccount");
+                int idAccount = resultSet.getInt("idAccount");
                 String image = resultSet.getString("image");
                 String userName = resultSet.getString("userName");
                 String passWord = resultSet.getString("passWord");
                 String fullName = resultSet.getString("fullName");
                 String email = resultSet.getString("email");
+                String decentralization = resultSet.getString("decentralization");
                 String status = resultSet.getString("status");
-                Account account = new Account(id,image, userName,passWord,fullName,email, status);
+                Account account = new Account(idAccount, image, userName, passWord, fullName, email, decentralization, status);
                 listAccount.add(account);
             }
         } catch (Exception e) {
@@ -76,6 +78,7 @@ public class AccountDao extends  DaoHelper implements BaseDao<Account> {
             statement.setString(3, account.getPassWord());
             statement.setString(4, account.getFullName());
             statement.setString(5, account.getEmail());
+            statement.setString(6, account.getDecentralization());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +96,8 @@ public class AccountDao extends  DaoHelper implements BaseDao<Account> {
             statement.setString(3, account.getPassWord());
             statement.setString(4, account.getFullName());
             statement.setString(5, account.getEmail());
-            statement.setInt(6,id);
+            statement.setString(6, account.getDecentralization());
+            statement.setInt(7, id);
             rowUp = statement.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,8 +134,9 @@ public class AccountDao extends  DaoHelper implements BaseDao<Account> {
                 String passWord = resultSet.getString("passWord");
                 String fullName = resultSet.getString("fullName");
                 String email = resultSet.getString("email");
+                String decentralization = resultSet.getString("decentralization");
                 String status = resultSet.getString("status");
-                account = new Account(idAccount, image,userName,passWord,fullName,email, status);
+                account = new Account(idAccount, image, userName, passWord, fullName, email, decentralization,status);
             }
         } catch (Exception e) {
             e.printStackTrace();

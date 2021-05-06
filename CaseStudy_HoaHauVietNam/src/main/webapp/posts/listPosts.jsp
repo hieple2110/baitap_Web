@@ -66,33 +66,43 @@
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
                         <ul class="nav side-menu">
-                            <li><a href="/listAccount"><i class="fa fa-desktop"></i>Quản lý Tài khoản</a>
-                            </li>
+                            <c:if test="${sessionScope.account != null}">
+                                <c:choose>
+                                    <c:when test="${sessionScope.account.decentralization.equals('user')}">
+                                        <li><a href="/listPosts"><i class="fa fa-desktop"></i>Quản lý Bài viết</a>
+                                        </li>
+                                    </c:when>
+                                    <c:when test="${sessionScope.account.decentralization.equals('admin')}">
+                                        <li><a href="/listAccount"><i class="fa fa-desktop"></i>Quản lý Tài khoản</a>
+                                        </li>
 
-                            <li><a href="/listPosts"><i class="fa fa-desktop"></i>Quản lý Bài viết</a>
-                            </li>
+                                        <li><a href="/listPosts"><i class="fa fa-desktop"></i>Quản lý Bài viết</a>
+                                        </li>
 
-                            <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Thí Sinh</a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/listMiss">Hồ Sơ Đăng Ký</a></li>
-                                    <li><a href="/listPage">Hồ Sơ Đăng Ký(Page)</a></li>
-                                    <li><a href="/xetduyet">Danh sách Xét duyệt</a></li>
-                                    <li><a href="/choDuyet">Danh sách Chờ duyệt</a></li>
-                                    <li><a href="/daDuyet">Danh sách Đã duyệt</a></li>
-                                    <li><a href="/biLoai">Danh sách Bị loại</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Tỉnh thành</a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/pageProvince">Danh sách Tỉnh thành(Page)</a></li>
-                                    <li><a href="/listProvince">Danh sách Tỉnh thành</a></li>
-                                </ul>
-                            </li>
+                                        <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Thí Sinh</a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/listMiss">Hồ Sơ Đăng Ký</a></li>
+                                                <li><a href="/listPage">Hồ Sơ Đăng Ký(Page)</a></li>
+                                                <li><a href="/xetduyet">Danh sách Xét duyệt</a></li>
+                                                <li><a href="/choDuyet">Danh sách Chờ duyệt</a></li>
+                                                <li><a href="/daDuyet">Danh sách Đã duyệt</a></li>
+                                                <li><a href="/biLoai">Danh sách Bị loại</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-desktop"></i>Quản lý Tỉnh thành</a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/pageProvince">Danh sách Tỉnh thành(Page)</a></li>
+                                                <li><a href="/listProvince">Danh sách Tỉnh thành</a></li>
+                                            </ul>
+                                        </li>
 
-                            <li><a href="/listNation"><i class="fa fa-desktop"></i>Quản lý Dân Tộc</a>
-                            </li>
-                            <li><a href="/listEducation"><i class="fa fa-desktop"></i>Quản lý Học Vấn</a>
-                            </li>
+                                        <li><a href="/listNation"><i class="fa fa-desktop"></i>Quản lý Dân Tộc</a>
+                                        </li>
+                                        <li><a href="/listEducation"><i class="fa fa-desktop"></i>Quản lý Học Vấn</a>
+                                        </li>
+                                    </c:when>
+                                </c:choose>
+                            </c:if>
                         </ul>
                     </div>
 
@@ -151,10 +161,13 @@
                             <c:if test='${message != null}'>
                                 <c:choose>
                                     <c:when test='${message!="Thành công"}'>
-                                        <div class="alert alert-danger" role="alert" style="height: 40px; margin-top: 38px">${message}</div>
+                                        <div class="alert alert-danger" role="alert"
+                                             style="height: 40px; margin-top: 38px">${message}</div>
                                     </c:when>
                                     <c:when test="${message == 'Thành công'}">
-                                        <div class="alert alert-success" role="alert" style="height: 40px; margin-top: 38px">Thực hiện thành công</div>
+                                        <div class="alert alert-success" role="alert"
+                                             style="height: 40px; margin-top: 38px">Thực hiện thành công
+                                        </div>
                                     </c:when>
                                 </c:choose>
                             </c:if>
@@ -206,7 +219,8 @@
                                         <%--                                        <c:forEach var="user" items="${sessionScope.user}">--%>
                                         <c:forEach var="posts" items="${listPosts}">
                                             <tr class="even pointer">
-                                                <td> <img src="<c:out value="${posts.image}" />" height="100px" width="120px"></td>
+                                                <td><img src="<c:out value="${posts.image}" />" height="100px"
+                                                         width="120px"></td>
 
                                                 <td><c:out value="${posts.title}"/></td>
                                                 <td><c:out value="${posts.shortContent}"/></td>
@@ -261,7 +275,8 @@
                                             class="required"></span></label>
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <textarea name="short" class=" form-control" placeholder="This text..."></textarea>
+                                            <textarea name="short" class=" form-control"
+                                                      placeholder="This text..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +286,23 @@
                                             class="required"></span></label>
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <textarea id="content" name="full" class=" form-control" placeholder="This text..."></textarea>
+                                            <textarea id="content" name="full" class=" form-control"
+                                                      placeholder="This text..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Category<span
+                                            class="required"></span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <select class="form-control" name="category">
+                                                <option>Chọn Thể loại</option>
+                                                <c:forEach items="${listCategory}" var="category">
+                                                    <option value="${category.idCategory}">${category.nameCategory}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

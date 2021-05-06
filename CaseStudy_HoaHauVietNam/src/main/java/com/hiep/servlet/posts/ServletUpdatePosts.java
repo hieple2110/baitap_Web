@@ -1,7 +1,9 @@
 package com.hiep.servlet.posts;
 
 import com.hiep.dao.PostsDao;
+import com.hiep.model.Category;
 import com.hiep.model.Posts;
+import com.hiep.service.CategoryService;
 import com.hiep.service.PostsService;
 
 import javax.servlet.RequestDispatcher;
@@ -16,18 +18,20 @@ import java.util.List;
 @WebServlet(name = "ServletUpdatePosts", urlPatterns = "/updatePosts")
 public class ServletUpdatePosts extends HttpServlet {
     PostsService postsService = new PostsService();
+    CategoryService categoryService = new CategoryService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
 
         try {
-            int id = Integer.parseInt(request.getParameter("id"));
+            int idPosts = Integer.parseInt(request.getParameter("id"));
             String image = request.getParameter("image");
             String title = request.getParameter("title");
             String shortContent = request.getParameter("short");
             String fullContent = request.getParameter("full");
-            Posts posts = new Posts(id, image, title, shortContent, fullContent);
+            int category = Integer.parseInt(request.getParameter("category"));
+            Posts posts = new Posts(idPosts, image, title, shortContent, fullContent, category);
             request.setAttribute("message", this.postsService.update(posts.getIdPosts(), posts));
             List<Posts> listPosts = this.postsService.getAll();
             request.setAttribute("listPosts", listPosts);
@@ -43,7 +47,8 @@ public class ServletUpdatePosts extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
         try {
-
+            List<Category> listCategory = this.categoryService.getAll();
+            request.setAttribute("listCategory", listCategory);
             int id = Integer.parseInt(request.getParameter("idPosts"));
             Posts posts = this.postsService.findById(id);
             request.setAttribute("posts", posts);

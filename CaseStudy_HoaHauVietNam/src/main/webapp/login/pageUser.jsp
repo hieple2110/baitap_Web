@@ -1,479 +1,638 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HP
-  Date: 02/01/2021
-  Time: 16:32
-  To change this template use File | Settings | File Templates.
---%>
+<!doctype html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<html class="no-js">
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<html lang="en">
 <head>
+    <title>Hoa Hậu Việt Nam 2020</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>VEX Shop </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700" rel="stylesheet">
 
-    <!-- Fonts -->
-    <!-- Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i|Source+Sans+Pro:300,400,600,700"
-          rel="stylesheet">
+    <link rel="stylesheet" href="../Blog_Miss/css/bootstrap.css">
+    <link rel="stylesheet" href="../Blog_Miss/css/animate.css">
+    <link rel="stylesheet" href="../Blog_Miss/css/owl.carousel.min.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../Blog_Miss/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../Blog_Miss/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../Blog_Miss/fonts/flaticon/font/flaticon.css">
 
-    <!-- CSS -->
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="../Vex_Shop/plugins/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../Vex_Shop/plugins/themefisher-fonts/themefisher-fonts.css">
-    <link rel="stylesheet" href="../Vex_Shop/plugins/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="../Vex_Shop/plugins/magnific-popup/magnific-popup.css">
-    <link rel="stylesheet" href="../Vex_Shop/css/style.css">
-    <!-- Responsive Stylesheet -->
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="../Blog_Miss/css/style.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        /* Add a background color when the inputs get focus */
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+            padding: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: #474e5d;
+            padding-top: 50px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Style the horizontal ruler */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 35px;
+            top: 15px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #f1f1f1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body id="body">
 
-<div id="preloader-wrapper">
-    <div class="pre-loader"></div>
-</div>
+<header role="banner">
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-9 social">
+                    <a href="#"><span class="fa fa-twitter"></span></a>
+                    <a href="#"><span class="fa fa-facebook"></span></a>
+                    <a href="#"><span class="fa fa-instagram"></span></a>
+                    <a href="#"><span class="fa fa-youtube-play"></span></a>
+                    <a href="#"><span class="fa fa-vimeo"></span></a>
+                    <a href="#"><span class="fa fa-snapchat"></span></a>
+                </div>
+                <div class="col-3 search-top">
+                    <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+                    <form action="#" class="search-top-form">
+                        <span class="icon fa fa-search"></span>
+                        <input type="text" placeholder="Type keyword to search...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- navigation -->
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <a class="navbar-brand" href="#">Hoa Hậu Việt Nam 2020</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="container logo-wrap">
+        <div class="row pt-5">
+            <div class="col-12 text-center">
+                <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button"
+                   aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+                <h1 class="site-logo"><a href="#">Miss Việt Nam 2021</a></h1>
+            </div>
+        </div>
+    </div>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center text-lg-left">
+    <nav class="navbar navbar-expand-md  navbar-light bg-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link active" href="/pageUser">Trang chủ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/changPassword">Change Password</a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="author-details">
-                            <ul>
-                                <li>
-                                    <img style="border-radius: 50%;" width="50px" height="50px"
-                                         src="<c:url value="${sessionScope.account.image}"/>" alt=" ">${sessionScope.account.fullName}
-                                </li>
-                            </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Tin Tức</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown05">
+                            <a class="dropdown-item" href="/newPosts">Tin Tức Mới</a>
+                            <a class="dropdown-item" href="/postsDonors">Nhà Đồng Hành</a>
+                            <a class="dropdown-item" href="/postsMiss">Thí Sinh</a>
+                            <a class="dropdown-item" href="/activities">Hoạt Động</a>
+                            <a class="dropdown-item" href="/postsRound">Vòng thi</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Hồ sơ Thí sinh</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown05">
+                            <a class="dropdown-item" href="/listMissDisplay">Danh sách Đăng Ký</a>
+                            <a class="dropdown-item" href="/listMissWait">Danh sách Chờ Duyệt</a>
+                            <a class="dropdown-item" href="/listMissApprove">Danh sách Đã Duyệt</a>
+                            <a class="dropdown-item" href="/listMissOut">Danh sách Đã Loại</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Khác</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown06">
+                            <a class="dropdown-item" href="/registerProfile">Đăng ký Dự thi</a>
+                            <a class="dropdown-item" href="/login">Đăng Nhập</a>
+                            <a class="dropdown-item" href="/logout">Đăng Xuất</a>
+                            <a class="dropdown-item" href="/changPassword">Đổi Mật Khẩu</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="document.getElementById('id01').style.display='block'"
+                           style="width:auto;">Đăng Ký Dự Thi</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                                 <h6 style="color: deepskyblue">${sessionScope.account.userName}</h6>
+                        </a>
                     </li>
                 </ul>
+                <div id="id01" class="modal">
+                    <div class="modal-dialog modal-lg">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                              title="Close Modal">&times;</span>
+
+                        <form class="modal-content" action="/registerProfile" method="post">
+                            <div class="container">
+                                <h1>Thông tin đăng ký</h1>
+                                <p>Vui lòng nhập đúng thông tin </p>
+                                <hr>
+                                <label><b>Họ và Tên</b></label>
+                                <input type="text" placeholder="Nhập Họ và tên" name="name" required>
+
+                                <label><b>Ngày Sinh</b></label>
+                                <input type="date" placeholder="Nhập Ngày Sinh" name="date" required>
+
+                                <label><b>Chứng minh Nhân dân</b></label>
+                                <input type="text" placeholder="Nhập Số Chứng minh nhân dân" name="pass" required>
+
+
+                                <label><b>Địa chỉ</b></label>
+                                <input type="text" placeholder="Nhập Địa chỉ" name="address" required>
+
+                                <label><b>Nghề nghiệp</b></label>
+                                <input type="text" placeholder="Nhập Nghề nghiệp" name="job" required>
+
+                                <label><b>Email</b></label>
+                                <input type="text" placeholder="Nhập Họ và tên" name="email" required>
+
+                                <label><b>Số điện thoại</b></label>
+                                <input type="text" placeholder="Nhập Số điẹn thoại" name="phone" required>
+
+
+                                <label><b>Tỉnh Thành</b></label>
+                                <select class="form-control" name="province">
+                                    <option>Chọn Tỉnh thành</option>
+                                    <c:forEach items="${listProvince}" var="province">
+                                        <option value="${province.idProvince}">${province.nameProvince}</option>
+                                    </c:forEach>
+                                </select>
+
+                                <label><b>Dân Tộc</b></label>
+                                <select class="form-control" name="nation">
+                                    <option>Chọn Dân Tộc</option>
+                                    <c:forEach items="${listNation}" var="nation">
+                                        <option value="${nation.idNation}">${nation.nameNation}</option>
+                                    </c:forEach>
+                                </select>
+
+                                <label><b>Học Vấn</b></label>
+                                <select class="form-control" name="education">
+                                    <option>Chọn Học vấn</option>
+                                    <c:forEach items="${listEducation}" var="education">
+                                        <option value="${education.idEducational}">${education.nameEducational}</option>
+                                    </c:forEach>
+                                </select>
+
+                                <label><b>Ảnh Đại diện</b></label>
+                                <input type="text" placeholder="Repeat Password" name="image" required>
+                                <div class="clearfix">
+                                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                                            class="cancelbtn">Cancel
+                                    </button>
+                                    <button type="submit" class="signupbtn">Sign Up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <c:forEach items="${message}" var="message">
+                    <c:if test='${message != null}'>
+                        <c:choose>
+                            <c:when test='${message!="Thành công"}'>
+                                <script>alert(${message})</script>
+                            </c:when>
+                            <c:when test="${message == 'Thành công'}">
+                                <script>alert("Bạn đã đăng ký hồ sơ thành công.")</script>
+                            </c:when>
+                        </c:choose>
+                    </c:if>
+                </c:forEach>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </header>
-<!-- /navigation -->
+<!-- END header -->
 
-<!-- hero area -->
-<section class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center mb-5 mb-md-0">
-                <img style="width: 30rem;height: 28rem;
-    border-radius: 20px;" src="../Vex_Shop/anh/namem.jpg" alt="">
-            </div>
-            <div class="col-md-6 align-self-center text-center text-md-left">
-                <div class="block">
-                    <h1 class="font-weight-bold mb-4 font-size-60">Hoa khôi Nam Em muốn dự thi Hoa hậu Việt Nam
-                        2021</h1>
-                    <p class="mb-4">Người đẹp bày tỏ mong muốn tiếp tục thử sức tại cuộc thi Hoa hậu Việt Nam 2021 sau
-                        khi lọt vào top 38 Hoa hậu Việt Nam 2014.
-                    </p>
-                    <a class="btn btn-main" href="/viewPosts?idPosts=${posts.idPosts}" role="button">Xem chi tiết</a>
-                </div>
-            </div>
-        </div><!-- .row close -->
-    </div><!-- .container close -->
-</section><!-- header close -->
-
-
-<!--
-    Feature start
-    ==================== -->
-<section class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="heading">
-                    <h2>Trang sức đá quá IJC</h2>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="mb-40 text-center text-md-left">
-                    <i class="d-inlin-block h2 mb-10 tf-ion-ios-alarm-outline"></i>
-                    <h4 class="font-weight-bold mb-2">Smooth Touch</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
-                </div>
-                <div class="mb-40 text-center text-md-left">
-                    <i class="d-inlin-block h2 mb-10 tf-ion-ios-bell-outline"></i>
-                    <h4 class="font-weight-bold mb-2">Elegant Design</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
-                </div>
-                <div class="mb-40 text-center text-md-left">
-                    <i class="d-inlin-block h2 mb-10 tf-ion-ios-cart-outline"></i>
-                    <h4 class="font-weight-bold mb-2">Easy Pricing</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
-                </div>
-            </div>
-            <div class="col-md-4 text-center align-self-center mb-4 mb-md-0">
-                <img style="    width: 20rem;
-    height: 23rem;
-    border-radius: 20px;" src="../Vex_Shop/anh/a.jpg" alt="">
-            </div>
-            <div class="col-md-4">
-                <div class="mb-40 text-center text-md-left">
-                    <i class="d-inlin-block h2 mb-10 tf-ion-ios-alarm-outline"></i>
-                    <h4 class="font-weight-bold mb-2">Smooth Touch</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
-                </div>
-                <div class="mb-40 text-center text-md-left">
-                    <i class="d-inlin-block h2 mb-10 tf-ion-ios-bell-outline"></i>
-                    <h4 class="font-weight-bold mb-2">Elegant Design</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
-                </div>
-                <div class="mb-40 text-center text-md-left">
-                    <i class="d-inlin-block h2 mb-10 tf-ion-ios-cart-outline"></i>
-                    <h4 class="font-weight-bold mb-2">Easy Pricing</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
-                </div>
-            </div>
-        </div>
-    </div><!-- .container close -->
-</section><!-- #service close -->
-
-<section class="bg-orange section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center mb-5 mb-lg-0">
-                <img style="width: 33rem;
-    height: 19rem;
-    border-radius: 20px;" src="../Vex_Shop/anh/bs.jpg" alt="">
-            </div>
-            <div class="col-md-6 align-self-center text-center text-md-left">
-                <div class="content">
-                    <h2 class="subheading text-white font-weight-bold mb-10">5 Hoa hậu của Thập kỷ hương sắc hội tụ
-                        trong phần thi áo dài của Đêm Chung kết HHVN 2020</h2>
-                    <p class="text-white">Áo dài là trang phục truyền thống của dân tộc. Việc trình diễn áo dài trong
-                        đêm Chung kết toàn quốc HHVN 2020 mang ý nghĩa nhân văn lan tỏa tiếng nói trái tim và lòng nhân
-                        ái đáng trân quý của người phụ nữ Việt Nam..</p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="feature-list section">
+<section class="site-section pt-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="heading">
-                    <h2>Lan tỏa cùng nhan sắc Việt</h2>
+                <div class="owl-carousel owl-theme home-slider">
+                    <c:forEach items="${listPosts}" var="post">
+                        <div>
+                            <a href="/viewPostsDisplay?idPosts=${post.idPosts}"
+                               class="a-block d-flex align-items-center height-lg"
+                               style="background-image: url('${post.image}'); ">
+                                <div class="text half-to-full">
+                                    <div class="post-meta">
+                                        <span class="category">Lifestyle</span>
+                                        <span class="mr-2">${post.date}</span> &bullet;
+                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                    </div>
+                                    <h3>${post.title}</h3>
+                                    <p>${post.shortContent}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
+        </div>
 
-        </div>
-        <div class="row mb-40">
-            <div class="col-md-6 text-center mb-5 mb-lg-0">
-                <img style="    width: 300px;
-    height: 20rem;
-    border-radius: 20px;" src="../Vex_Shop/anh/d.jpeg" alt="">
-            </div>
-            <div class="col-md-6 align-self-center text-center text-md-left">
-                <div class="content">
-                    <h4 class="subheading">TOP 3 HOA HẬU VIỆT NAM 2020 GIAO LƯU CÙNG CHICILON MEDIA</h4>
-                    <p>Ngày 25/11 vừa qua, Tân Hoa hậu Việt Nam 2020 Đỗ Thị Hà cùng Á hậu Phương Anh và Á hậu Ngọc Thảo đã đến thăm trụ sở công ty Chicilon Media Việt Nam./p>
-                        <a href="" class="btn btn-main btn-main-sm">Check Features</a>
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-md-6 order-md-1 order-2 align-self-center text-center text-md-left">
-                <div class="content">
-                    <h4 class="subheading">Người đẹp nhân ái: Trao đi sự nhân ái và nhận được trái tim yêu thương</h4>
-                    <p>Bảy chuyến hành trình nhân ái của Top 35 thí sinh xuất sắc nhất Hoa Hậu Việt Nam 2020 vừa kết thúc cũng là lúc những cung bậc cảm xúc dạt dào đọng lại trong lòng khán giả.</p>
-                    <a href="#" class="btn btn-main btn-main-sm">Check Features</a>
+            <c:forEach items="${listPostsTop3}" var="top3">
+                <div class="col-md-6 col-lg-4">
+                    <a href="/viewPostsDisplay?idPosts=${top3.idPosts}"
+                       class="a-block d-flex align-items-center height-md"
+                       style="background-image: url('${top3.image}'); ">
+                        <div class="text">
+                            <div class="post-meta">
+                                <span class="category">Lifestyle</span>
+                                <span class="mr-2">${top3.date}</span> &bullet;
+                                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                            </div>
+                            <h3>${top3.title}</h3>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-6 order-md-2 order-1 text-center mb-5 mb-lg-0">
-                <img style="    width: 300px;
-    height: 20rem;
-    border-radius: 20px;" src="../Vex_Shop/anh/c.jpg" alt="">
-            </div>
+            </c:forEach>
         </div>
     </div>
+
+
 </section>
+<!-- END section -->
 
-
-<section class="gallery">
+<section class="site-section py-sm">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="heading">
-                    <h2>Checkout some amazing Image</h2>
-                </div>
-
-                <div class="gallery-slider">
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop/anh/c.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/c.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop/anh/a.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px; height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/a.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop//anh/bs.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/bs.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop//anh/a.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/a.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop//anh/namem.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/namem.jpg" alt="">
-                    </div>
-
-
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop/anh/c.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/c.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop/anh/a.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px; height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/a.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop//anh/bs.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/bs.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop//anh/a.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/a.jpg" alt="">
-                    </div>
-
-                    <div class="block">
-                        <div class="gallery-overlay">
-                            <a href="../Vex_Shop//anh/namem.jpg" class="image-popup gallery-popup">
-                                <i class="tf-ion-ios-search"></i>
-                            </a>
-                        </div>
-
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/namem.jpg" alt="">
-                    </div>
-
-                </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">Nhà Đồng Hành</h2>
             </div>
         </div>
-    </div>
-</section>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
+                <div class="row">
+                    <c:forEach items="${listDonors}" var="donors">
+                        <div class="col-md-6">
+                            <a href="/viewPostsDisplay?idPosts=${donors.idPosts}" class="blog-entry element-animate"
+                               data-animate-effect="fadeIn">
+                                <img style="    vertical-align: middle; border-style: none;height: 20rem;width: 100%;object-fit: cover;"
+                                     src="${donors.image}" alt="Image placeholder">
+                                <div class="blog-content-body">
+                                    <div class="post-meta">
+                                        <span class="category">Food</span>
+                                        <span class="mr-2">${donors.date}</span> &bullet;
+                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                    </div>
+                                    <c:set var="title" value="${donors.title}"/>
+                                    <c:set var="title2" value="${fn:substring(title, 0, 60)}"/>
+                                    <h2>${title2}</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <nav aria-label="Page navigation" class="text-center">
+                            <ul class="pagination">
+                                <li class="page-item  active"><a class="page-link" href="#">Prev</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
 
 
-<section class="call-to-action section bg-opacity bg-1">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-8 text-center mx-auto">
-                <h2 class="subheading text-white">Get Product Updates</h2>
-                <p class="text-white">Lorem ipsum dolor amet, consectetur adipisicing elit, sed do eiusmod</p>
-                <div class="input-group">
-                    <form action="#" class="w-100">
-                        <input type="email" id="email" class="form-control" name="email"
-                               placeholder="Your Email Address Here" required>
-                        <button class="btn btn-main btn-submit" type="submit">Subscribe</button>
+                <div class="row mb-5 mt-5">
+                    <div class="col-md-12">
+                        <h2 class="mb-4">Bài Viết Khác</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <c:forEach items="${listPostsTop8}" var="top8">
+                            <div class="post-entry-horzontal">
+                                <a href="/viewPostsDisplay?idPosts=${top8.idPosts}">
+                                    <div class="image element-animate" data-animate-effect="fadeIn"
+                                         style="background-image: url('${top8.image}');"></div>
+                                    <span class="text">
+                                        <div class="post-meta">
+                                             <span class="category">Travel</span>
+                                        <span class="mr-2">${top8.date}</span> &bullet;
+                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                        </div>
+                                         <h2>${top8.title}</h2>
+                                    </span>
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- END main-content -->
+
+            <div class="col-md-12 col-lg-4 sidebar">
+                <div class="sidebar-box search-form-wrap">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon fa fa-search"></span>
+                            <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                        </div>
                     </form>
-                </div><!-- /input-group -->
-            </div>
-        </div>
-    </div>
-</section><!-- #call-to-action close -->
+                </div>
+                <!-- END sidebar-box -->
+                <div class="sidebar-box">
+                    <div class="bio text-center">
+                        <img src="../Blog_Miss/images/person_1.jpg" alt="Image Placeholder" class="img-fluid">
+                        <div class="bio-body">
+                            <h2>Meagan Smith</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
+                                repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias
+                                minus.</p>
+                            <p><a href="#" class="btn btn-primary btn-sm">Read my bio</a></p>
+                            <p class="social">
+                                <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END sidebar-box -->
+                <div class="sidebar-box">
+                    <h3 class="heading">Volunteer Activities</h3>
+                    <div class="post-entry-sidebar">
+                        <ul>
+                            <c:forEach items="${listActivities}" var="action">
+                                <li>
+                                    <a href="/viewPostsDisplay?idPosts=${action.idPosts}">
+                                        <img style="width: 90%;height: 11rem;object-fit: cover;" src="${action.image}"
+                                             alt="Image placeholder" class="mr-4">
+                                        <div class="text">
+                                            <c:set var="String1" value="${action.title}"/>
+                                            <c:set var="String2" value="${fn:substring(String1, 0, 30)}"/>
+                                            <h4>${String2}</h4>
+                                            <div class="post-meta">
+                                                <span class="mr-2">${action.date}</span> &bullet;
+                                                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END sidebar-box -->
 
+                <div class="sidebar-box">
+                    <h3 class="heading">Categories</h3>
+                    <ul class="categories">
+                        <li><a href="#">Courses <span>(12)</span></a></li>
+                        <li><a href="#">News <span>(22)</span></a></li>
+                        <li><a href="#">Design <span>(37)</span></a></li>
+                        <li><a href="#">HTML <span>(42)</span></a></li>
+                        <li><a href="#">Web Development <span>(14)</span></a></li>
+                    </ul>
+                </div>
+                <!-- END sidebar-box -->
 
-<section class="testimonials section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="heading">
-                    <h2>Watch Review</h2>
+                <div class="sidebar-box">
+                    <h3 class="heading">Tags</h3>
+                    <ul class="tags">
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Food</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Freelancing</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Food</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Freelancing</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center">
-                <div class="testimonial-block">
-                    <i class="tf-ion-quote"></i>
-                    <p>
-                        A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                        spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in
-                        this spot, which was created for the bliss of souls like mine. I am so happy, my dear
-                        friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my
-                        talents.
-                    </p>
-                    <div class="author-details">
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/a.jpg" alt="">
-                        <h4>Jonathon Andrew</h4>
-                        <span>CEO, Themefisher</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center">
-                <div class="testimonial-block">
-                    <i class="tf-ion-quote"></i>
-                    <p>
-                        A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                        spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in
-                        this spot, which was created for the bliss of souls like mine. I am so happy, my dear
-                        friend. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, perferendis.
-                    </p>
-                    <div class="author-details">
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/bs.jpg" alt="">
-                        <h4>Jonathon Andrew</h4>
-                        <span>CEO, Themefisher</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center">
-                <div class="testimonial-block">
-                    <i class="tf-ion-quote"></i>
-                    <p>
-                        A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                        spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in
-                        this spot, which was created for the bliss of souls like mine. I am so happy, my dear
-                        friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my
-                        talents.
-                    </p>
-                    <div class="author-details">
-                        <img style="width: 300px;height: 150px;
-    border-radius: 20px;" src="../Vex_Shop/anh/c.jpg" alt="">
-                        <h4>Jonathon Andrew</h4>
-                        <span>CEO, Themefisher</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-100">
-            <div class="col-md-12 text-center">
-                <a href="" class="btn btn-main">Grab You Product Now</a>
-            </div>
+            <!-- END sidebar -->
+
         </div>
     </div>
 </section>
 
+<footer class="site-footer">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-4">
+                <h3>Paragraph</h3>
+                <p>
+                    <img src="../Blog_Miss/images/img_1.jpg" alt="Image placeholder" class="img-fluid">
+                </p>
 
-<footer>
-    <div class="container text-center">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, accusantium optio unde perferendis
+                    eum illum voluptatibus dolore tempora, consequatur minus asperiores temporibus reprehenderit.</p>
+            </div>
+            <div class="col-md-6 ml-auto">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>Bài Viết Mới</h3>
+                        <div class="post-entry-sidebar">
+                            <ul>
+                                <c:forEach items="${listPostsTop3}" var="top3">
+                                    <a href="/viewPostsDisplay?idPosts=${top3.idPosts}">
+                                        <img style=" width: 15rem; height: 5rem; object-fit: cover;" src="${top3.image}"
+                                             alt="Image placeholder" class="mr-4">
+                                        <div class="text">
+                                            <h4> style="color: white">${top3.title}</h4>
+                                            <div class="post-meta">
+                                                <span class="mr-2">${top3.date}</span> &bullet;
+                                                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-4">
+
+                        <div class="mb-5">
+                            <h3>Quick Links</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Adventure</a></li>
+                                <li><a href="#">Courses</a></li>
+                                <li><a href="#">Categories</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-5">
+                            <h3>Social</h3>
+                            <ul class="list-unstyled footer-social">
+                                <li><a href="#"><span class="fa fa-twitter"></span> Twitter</a></li>
+                                <li><a href="#"><span class="fa fa-facebook"></span> Facebook</a></li>
+                                <li><a href="#"><span class="fa fa-instagram"></span> Instagram</a></li>
+                                <li><a href="#"><span class="fa fa-vimeo"></span> Vimeo</a></li>
+                                <li><a href="#"><span class="fa fa-youtube-play"></span> Youtube</a></li>
+                                <li><a href="#"><span class="fa fa-snapchat"></span> Snapshot</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="block">
-                    <a href="#" class="footer-logo mb-4">Vex</a>
-                    <ul class="list-inline footer-menu">
-                        <li class="list-inline-item">
-                            <a href="#">HOME</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#about">ABOUT</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#service">SERVICES</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#contact">CONTACT</a>
-                        </li>
-                    </ul>
-                    <p class="copyright-text">Copyright &copy; <a href="http://www.Themefisher.com">Themefisher</a>|
-                        All right reserved.</p>
-                </div>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </div>
         </div>
     </div>
 </footer>
+<!-- END footer -->
+
+<!-- loader -->
+<div id="loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#f4b214"/>
+    </svg>
+</div>
+
+<script src="../Blog_Miss/js/jquery-3.2.1.min.js"></script>
+<script src="../Blog_Miss/js/jquery-migrate-3.0.0.js"></script>
+<script src="../Blog_Miss/js/popper.min.js"></script>
+<script src="../Blog_Miss/js/bootstrap.min.js"></script>
+<script src="../Blog_Miss/js/owl.carousel.min.js"></script>
+<script src="../Blog_Miss/js/jquery.waypoints.min.js"></script>
+<script src="../Blog_Miss/js/jquery.stellar.min.js"></script>
 
 
-<!-- Js -->
-<script src="../Vex_Shop/plugins/jquery-2.1.1.min.js"></script>
-<script src="../Vex_Shop/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="../Vex_Shop/plugins/owl-carousel/owl.carousel.min.js"></script>
-<script src="../Vex_Shop/plugins/magnific-popup/jquery.magnific.popup.min.js"></script>
-<script src="../Vex_Shop/js/main.js"></script>
+<script src="../Blog_Miss/js/main.js"></script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
 
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 </body>
-
 </html>

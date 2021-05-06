@@ -1,9 +1,7 @@
 package com.hiep.service;
 
 import com.hiep.dao.PostsDao;
-import com.hiep.model.Account;
 import com.hiep.model.Posts;
-import com.hiep.model.Province;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -30,6 +28,34 @@ public class PostsService extends  ValidateService implements BaseService<Posts>
     @Override
     public List<Posts> getAll() throws SQLException {
         return this.postsDao.getAll();
+    }
+
+    public List<Posts> top3() throws SQLException {
+        return this.postsDao.top_3();
+    }
+
+    public List<Posts> top8() throws SQLException {
+        return this.postsDao.top_8();
+    }
+
+    public List<Posts> top10() throws SQLException {
+        return this.postsDao.top_10();
+    }
+
+    public List<Posts> listPostMiss() throws SQLException {
+        return this.postsDao.listPostMiss();
+    }
+
+    public List<Posts> listPostsRound() throws SQLException {
+        return this.postsDao.listPostsRound();
+    }
+
+    public List<Posts> listDonors() throws SQLException {
+        return this.postsDao.listDonors();
+    }
+
+    public List<Posts> listActivities() throws SQLException {
+        return this.postsDao.listActivities();
     }
 
     @Override

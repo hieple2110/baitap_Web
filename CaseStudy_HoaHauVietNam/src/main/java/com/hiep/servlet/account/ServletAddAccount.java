@@ -26,7 +26,8 @@ public class ServletAddAccount extends HttpServlet {
             String pass = request.getParameter("pass");
             String name = request.getParameter("name");
             String email = request.getParameter("email");
-            Account account = new Account( image,user, pass, name, email);
+            String decentralization = request.getParameter("decentralization");
+            Account account = new Account( image,user, pass, name, email,decentralization);
             request.setAttribute("message", accountService.insert(account));
             List<Account> listAccount = this.accountService.getAll();
             request.setAttribute("listAccount",listAccount);
